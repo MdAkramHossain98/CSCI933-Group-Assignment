@@ -38,7 +38,7 @@ def load_system():
 chunks, retriever = load_system()
 
 # ── Sidebar ───────────────────────────────────────────────────────────────────
-st.sidebar.header("🎛️ Options")
+st.sidebar.header("Options")
 
 mode = st.sidebar.radio(
     "Choose system",
