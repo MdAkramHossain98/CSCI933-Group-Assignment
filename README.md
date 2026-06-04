@@ -193,6 +193,7 @@ scikit-learn
 numpy
 requests
 pandas
+streamlit
 ```
 
 ---
