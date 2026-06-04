@@ -120,7 +120,7 @@ Both scene-level and utterance-level formats are provided.
 ## Project Structure
 
 ```text
-assignment2/
+CSCI933-Group-Assignment-main/
 │
 ├── data/
 │   ├── raw/
@@ -156,7 +156,7 @@ assignment2/
 
 ```bash
 git clone <repository_url>
-cd assignment2
+cd CSCI933-Group-Assignment-main
 ```
 
 ### Create Virtual Environment
