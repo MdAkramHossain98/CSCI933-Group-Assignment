@@ -228,6 +228,12 @@ python src/rag_chatbot.py
 streamlit run app.py
 ```
 
+#### Live Demo
+
+You can access the deployed Streamlit application here:
+
+[Open the Shakespeare RAG Chatbot](https://csci933-group-assignment.streamlit.app/)
+
 Example:
 
 ```text
