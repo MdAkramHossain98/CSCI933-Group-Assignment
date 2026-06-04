@@ -217,8 +217,14 @@ GROQ_API_KEY = "YOUR_API_KEY"
 
 ### Launch Interactive Chatbot
 
+#### For Terminal Interface
 ```bash
 python src/rag_chatbot.py
+```
+
+#### For Web Application Interface
+```bash
+streamlit run app.py
 ```
 
 Example:
