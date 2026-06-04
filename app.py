@@ -17,11 +17,10 @@ from baseline    import baseline_answer
 
 st.set_page_config(
     page_title="Shakespeare RAG Chatbot",
-    page_icon="🎭",
     layout="wide",
 )
 
-st.title("🎭 Shakespeare-Aware RAG Chatbot")
+st.title("Shakespeare-Aware RAG Chatbot")
 st.write("Ask questions about **Hamlet**, **Macbeth**, and **Romeo and Juliet**.")
 
 
@@ -75,14 +74,14 @@ if st.button("Generate Answer", type="primary"):
 
             # ── Baseline (prompt-only) ────────────────────────────────────
             if mode == "Baseline System":
-                st.subheader("💬 Baseline Answer")
+                st.subheader("Baseline Answer")
                 st.caption("No retrieval — answer based on LLM knowledge only.")
                 try:
                     answer = baseline_answer(question)
                     st.write(answer)
                 except Exception as exc:
                     st.error(f"API Error: {exc}")
-                st.info("ℹ️ Baseline does not use retrieved Shakespeare evidence.")
+                st.info("Baseline does not use retrieved Shakespeare evidence.")
 
             # ── RAG ───────────────────────────────────────────────────────
             else:
@@ -91,10 +90,10 @@ if st.button("Generate Answer", type="primary"):
 
                 if stylised:
                     prompt = build_stylised_prompt(question, retrieved)
-                    label  = "🎭 Stylised Response"
+                    label  = "Stylised Response"
                 else:
                     prompt = build_rag_prompt(question, retrieved)
-                    label  = "💬 RAG Answer"
+                    label  = "RAG Answer"
 
                 try:
                     answer = generate_answer(prompt)
@@ -102,7 +101,7 @@ if st.button("Generate Answer", type="primary"):
 
                     if stylised:
                         st.warning(
-                            "⚠️ Creative Shakespearean-style verse — not factual evidence."
+                            "Creative Shakespearean-style verse — not factual evidence."
                         )
                         # Render each verse line on its own line in italics
                         raw_lines = [ln.strip() for ln in answer.split("\n") if ln.strip()]
@@ -116,7 +115,7 @@ if st.button("Generate Answer", type="primary"):
                     st.error(f"API Error: {exc}")
 
                 # Retrieved evidence expanders (always shown for RAG)
-                st.subheader("📜 Retrieved Evidence")
+                st.subheader("Retrieved Evidence")
                 for rank, (chunk, score) in enumerate(retrieved, start=1):
                     with st.expander(
                         f"Evidence {rank} | {chunk['play']} "
@@ -124,5 +123,5 @@ if st.button("Generate Answer", type="primary"):
                         f"| Similarity: {score:.4f}"
                     ):
                         if chunk.get("scene_summary"):
-                            st.caption(f"📝 Summary: {chunk['scene_summary']}")
+                            st.caption(f"Summary: {chunk['scene_summary']}")
                         st.text(chunk["text"][:600])
